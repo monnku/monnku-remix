@@ -1,6 +1,6 @@
 document.getElementsByClassName('startinput')[0].focus();
 let ws = null;
-let username = null;
+let username = 'まぬるねこ';
 const id = new Date().getTime().toString();
 const music = new Audio('カーソル移動1.mp3');
 const text = document.getElementsByClassName('text')[0];
