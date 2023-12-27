@@ -51,18 +51,18 @@ function send(){
     if(text.value !== '') {
         ws.send(JSON.stringify({'to': 'Pascha', 'message': text.value, 'username': username, 'id': id}));
         addchat(username, text.value);
-        text.value = '';
+        text = '';
     }
 }
 document.getElementsByClassName('send')[0].addEventListener('click', function(){
     send();
-    text.value = '';
+    text = '';
     coun += 1
 });
 text.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         send();
-        text.value = '';
+        text = '';
         coun += 1
     }
 });
