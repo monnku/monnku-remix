@@ -4,14 +4,14 @@
     font-family: 'Noto Sans JP', sans-serif;
 }
 body{
-    background-color:#F9F2ED;
+    background-color:#cdf5ff;
     width:100vw;
     height:100vh;
 }
 .title{
     height: 80px;
     width: 100%;
-    background-color:#FFB562;
+    background-color:#617eff;
     position: fixed;
     z-index: 2;
 }
@@ -46,7 +46,7 @@ body{
     width:500px;
     height: calc(100% - 80px);
     margin: 0 auto;
-    background-color: #F9F2ED;
+    background-color: #cdf5ff;
 }
 .chatscroll > div {
     font-size: 24px;
@@ -70,43 +70,43 @@ body{
 .text{
     margin-left: 10px;
     width: calc(380px - 8px);
-    background-color:#F9F2ED;
-    border: 4px solid #3AB0FF;
+    background-color:#cdf5ff;
+    border: 4px solid #00cbff;
 }
 .text:focus {
     outline: 0;
 }
 .send {
 	width: calc(50px - 8px);
-	color: #3AB0FF;
+	color: #00cbff;
     user-select: none;
     text-align: center;
-    border: 4px solid #3AB0FF;
+    border: 4px solid #00cbff;
     line-height: calc(50px - 8px);
 }
 .send:hover {
-	color: #F9F2ED;
-	background: #3AB0FF;
+	color: #cdf5ff;
+	background: #00cbff;
 }
 .edit {
     margin-left: 10px;
 	width: calc(50px - 8px);
-	color: #3AB0FF;
+	color: #00cbff;
     user-select: none;
     text-align: center;
-    border: 4px solid #3AB0FF;
+    border: 4px solid #00cbff;
     line-height: calc(50px - 8px);
 }
 .edit:hover {
-	color: #F9F2ED;
-	background: #3AB0FF;
+	color: #cdf5ff;
+	background: #00cbff;
 }
 .start {
     width:100%;
     height:100%;
     position: fixed;
     z-index: 1;
-    background: #F9F2EDDD;
+    background: #00dada;
 }
 .startmenu {
     position: relative;
@@ -127,8 +127,8 @@ body{
     top: 120px;
     left: 90px;
     width: calc(320px - 8px);
-    background-color:#F9F2ED;
-    border: 4px solid #3AB0FF;
+    background-color:#cdf5ff;
+    border: 4px solid #00cbff;
     height: calc(50px - 8px);
     font-size: 16px;
 }
@@ -141,15 +141,15 @@ body{
     height: calc(50px - 8px);
     text-align: center;
     font-size: 16px;
-	color: #3AB0FF;
+	color: #00cbff;
     user-select: none;
     text-align: center;
-    border: 4px solid #3AB0FF;
+    border: 4px solid #00cbff;
     line-height: calc(50px - 8px);
 }
 .startbutton:hover {
-	color: #F9F2ED;
-	background: #3AB0FF;
+	color: #cdf5ff;
+	background: #00cbff;
 }
 .editscroll{
     overflow-y: scroll;
@@ -158,7 +158,7 @@ body{
     position: absolute;
     top: 0px;
     left: calc(50% - 250px);
-    background-color: #3AB0FF;
+    background-color: #00cbff;
     overflow: hidden;
 }
 .editscroll > * {
