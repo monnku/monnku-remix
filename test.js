@@ -8,6 +8,7 @@ const chatscroll = document.getElementsByClassName('chatscroll')[0];
 let editopen = false;
 const editnamelist = ['ヽ(ﾟ∀｡)ﾉｳｪ🍡', '全部消す', 'リンク', 'スクラッチキャット', 'live', 'たぼわ'];
 const editscroll = document.createElement('div');
+const coun = 0
 editscroll.className = 'editscroll';
 editscroll.setAttribute('tabindex','-1');
 for(let i = 0;i < editnamelist.length; i++) {
@@ -20,6 +21,7 @@ function addchat (usernamevalue, messagevalue) {
     newelement.innerHTML = `${usernamevalue}：${messagevalue}`;
     chatscroll.appendChild(newelement);
     chatscroll.scrollTo(0, chatscroll.scrollHeight);
+    coun += 1
 }
 function connect(){
     ws = new WebSocket("wss://cloud.achex.ca/Pascha");
@@ -37,7 +39,7 @@ function connect(){
         }
         addchat(obj.username, obj.message);
         music.play();
-        
+        coun += 1
     });
     ws.addEventListener('close',function(e) {
         setTimeout(function(){
@@ -51,6 +53,7 @@ function send(){
         addchat(username, text.value);
     }
     text.value = '';
+    coun = 0
 }
 document.getElementsByClassName('send')[0].addEventListener('click', function(){
     send();
@@ -76,6 +79,7 @@ document.addEventListener('click', function(e) {
             if (editname === 1) {
                 if (confirm('本当にやるんだな？')) {
                     chatscroll.innerHTML = '';
+                    coun = 0
                 }
             }
             if (editname === 2) {
