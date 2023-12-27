@@ -1,6 +1,6 @@
 document.getElementsByClassName('startinput')[0].focus();
 let ws = null;
-let username = 'まぬるねこ';
+let username = null;
 const id = new Date().getTime().toString();
 const music = new Audio('カーソル移動1.mp3');
 const text = document.getElementsByClassName('text')[0];
@@ -8,7 +8,7 @@ const chatscroll = document.getElementsByClassName('chatscroll')[0];
 let editopen = false;
 const editnamelist = ['ヽ(ﾟ∀｡)ﾉｳｪ🍡', '全部消す', 'リンク', 'スクラッチキャット', 'live', 'たぼわ'];
 const editscroll = document.createElement('div');
-const coun = 0
+let count = 0;
 editscroll.className = 'editscroll';
 editscroll.setAttribute('tabindex','-1');
 for(let i = 0;i < editnamelist.length; i++) {
@@ -21,7 +21,7 @@ function addchat (usernamevalue, messagevalue) {
     newelement.innerHTML = `${usernamevalue}：${messagevalue}`;
     chatscroll.appendChild(newelement);
     chatscroll.scrollTo(0, chatscroll.scrollHeight);
-    coun += 1
+    count += 1;
 }
 function connect(){
     ws = new WebSocket("wss://cloud.achex.ca/Pascha");
@@ -39,7 +39,7 @@ function connect(){
         }
         addchat(obj.username, obj.message);
         music.play();
-        coun += 1
+        
     });
     ws.addEventListener('close',function(e) {
         setTimeout(function(){
@@ -51,19 +51,15 @@ function send(){
     if(text.value !== '') {
         ws.send(JSON.stringify({'to': 'Pascha', 'message': text.value, 'username': username, 'id': id}));
         addchat(username, text.value);
-        text = '';
     }
+    text.value = '';
 }
 document.getElementsByClassName('send')[0].addEventListener('click', function(){
     send();
-    text = '';
-    coun += 1
 });
 text.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         send();
-        text = '';
-        coun += 1
     }
 });
 document.getElementsByClassName('startbutton')[0].addEventListener('click', function(){
@@ -82,7 +78,7 @@ document.addEventListener('click', function(e) {
             if (editname === 1) {
                 if (confirm('本当にやるんだな？')) {
                     chatscroll.innerHTML = '';
-                    coun = 0
+                    count = 0;
                 }
             }
             if (editname === 2) {
@@ -162,6 +158,9 @@ document.addEventListener('click', function(e) {
         editopen = false;
     }else if (e.target === document.getElementsByClassName('edit')[0]){
         document.getElementsByClassName('main')[0].appendChild(editscroll);
+        editopen = true;
+    }
+});
         editopen = true;
     }
 });
