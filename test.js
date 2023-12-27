@@ -56,11 +56,13 @@ function send(){
 }
 document.getElementsByClassName('send')[0].addEventListener('click', function(){
     send();
+    text.value = '';
     coun += 1
 });
 text.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         send();
+        text.value = '';
         coun += 1
     }
 });
